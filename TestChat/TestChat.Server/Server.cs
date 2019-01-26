@@ -12,7 +12,7 @@ namespace TestChat.Server
     {
         private TcpListener _tcpListener;
         private List<Client> _clients = new List<Client>();
-        private string[] _lastMessages = new string[5];
+        private string[] _lastMessages = new string[5] {"", "", "", "", ""};
 
         public void AddConnection(Client client)
         {
@@ -31,13 +31,21 @@ namespace TestChat.Server
             Logger.Log(String.Format("Id {0} not found", id));
         }
 
+        private void _PopLast(string message)
+        {
+            for (int i = 0; i < 4; i++)
+            {
+                _lastMessages[i] = _lastMessages[i + 1];
+            }
+            _lastMessages[4] = message;
+        }
+
         public void Listen()
         {
             try
             {
                 _tcpListener = new TcpListener(IPAddress.Any, 8888);
                 _tcpListener.Start();
-
                 Logger.Log("Server started, waiting for connections");
 
                 while (true)
@@ -57,6 +65,7 @@ namespace TestChat.Server
 
         public void BroadcastMessage(string message, string id)
         {
+            _PopLast(message);
             byte[] data = Encoding.Unicode.GetBytes(message);
 
             for (int i = 0; i < _clients.Count; i++)
@@ -69,21 +78,23 @@ namespace TestChat.Server
 
         public void SendLast(string id)
         {
-            StringBuilder messageBuilder = new StringBuilder();
-            for (int i = 0; i < _lastMessages.Length; i++)
-                messageBuilder.Append(_lastMessages[i]);
-
-            byte[] data = Encoding.Unicode.GetBytes(messageBuilder.ToString());
+            StringBuilder builder = new StringBuilder();
+            foreach (var message in _lastMessages)
+            {
+                if (message != "")
+                    builder.AppendLine(message);
+            }
 
             Client client = _clients.FirstOrDefault(x => x.Id == id);
+            byte[] data = Encoding.Unicode.GetBytes(builder.ToString());
 
             if (client != null)
             {
                 client.Stream.Write(data, 0, data.Length);
                 Logger.Log(String.Format("Last messages sent to client {0}", id));
             }
-
-            Logger.Log(String.Format("Id {0} not found", id));
+            else
+                Logger.Log(String.Format("Id {0} not found", id));
         }
 
         public void Disconnect()

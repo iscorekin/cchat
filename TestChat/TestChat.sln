@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestChat.Server", "TestChat.Server\TestChat.Server.csproj", "{2AA5C419-3AA8-48A0-8526-60E0E2AAAFF1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestChat.Client", "TestChat.Client\TestChat.Client.csproj", "{BBC5A144-836F-4CDC-BFB9-1BDE08B42E72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestChat.Client.WinForms", "TestChat.Client.WinForms\TestChat.Client.WinForms.csproj", "{BC7DD05C-A578-42AD-B4FD-DE81D0B004E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{2AA5C419-3AA8-48A0-8526-60E0E2AAAFF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA5C419-3AA8-48A0-8526-60E0E2AAAFF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA5C419-3AA8-48A0-8526-60E0E2AAAFF1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BBC5A144-836F-4CDC-BFB9-1BDE08B42E72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BBC5A144-836F-4CDC-BFB9-1BDE08B42E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BBC5A144-836F-4CDC-BFB9-1BDE08B42E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BBC5A144-836F-4CDC-BFB9-1BDE08B42E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC7DD05C-A578-42AD-B4FD-DE81D0B004E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC7DD05C-A578-42AD-B4FD-DE81D0B004E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC7DD05C-A578-42AD-B4FD-DE81D0B004E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC7DD05C-A578-42AD-B4FD-DE81D0B004E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
