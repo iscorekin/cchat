@@ -26,7 +26,6 @@ namespace TestChat.Client.WinForms
             _chatBox = chatBox;
             _form = form;
             _Process();
-
         }
 
         private void _Process()

@@ -63,6 +63,7 @@ namespace TestChat.Client.WinForms
             {
                 _client.Disconnect();
                 FormDisconnected();
+                _client = null;
             }
         }
 
